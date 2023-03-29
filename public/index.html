@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Almost Free RealEstate</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="toast.css" />
+    <link rel="stylesheet" href="about.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="assets/imgs/navLogo.png" alt="navbar logo" id="navLogo"></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto my-2 my-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
+                  id="nav-home-link"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="nav-aboutus-link">About us</a>
+              </li>
+       
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="nav-add-new-flight-link"
+                  >Add new flight</a
+                >
+              </li>
+            </ul>
+            <form
+              class="d-flex responsive-nav-flex"
+              role="search"
+              id="navBeforeLogin"
+            >
+              <a class="nav-link me-3" href="#" id="nav-register-page"
+                >Register</a
+              >
+              <a class="nav-link responsive-mt" href="#" id="nav-login-page"
+                >Login</a
+              >
+            </form>
+               <button
+                    type="button"
+                    class="btn btn-primary d-none m-3"
+                    id="favorite-page-btn"
+                  >
+                    <i class="bi bi-cart-fill">Favorite Flights</i>
+                  </button>
+            
+            <form
+              class="d-flex responsive-nav-flex d-none"
+              role="search"
+              id="navAfterLogin"
+            >
+              <a class="nav-link me-3" href="#" id="nav-edit-profile-page"
+                >Name</a
+              >
+              <a class="nav-link responsive-mt" href="#" id="nav-logout"
+                >Logout</a
+              >
+            </form>
+           
+          </div>
+        </div>
+      </nav>
+      <div id="toast"></div>
+      <main>
+        <!-- home page -->
+        <div id="home-page" class="d-block">
+          <h1>Home page</h1>
+          <p>welcome to my site! here you can explore and find the best deals!</p>
+          <div
+            class="popup-wrapper d-flex justify-content-center align-items-center d-none"
+            id="editFlightPopup"
+          >
+            <div class="popup-div" id="editFlightPopupChild">
+              <div class="card">
+                <img
+                  src=""
+                  class="card-img-top"
+                  alt="edit image"
+                  id="editFlightPopupImgDisplay"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editFlightPopupDestination"
+                        placeholder="Destination"
+                      />
+                             <div
+                                  class="alert alert-danger d-none"
+                                  role="alert"
+                                  id="popup-alert-destination"
+                                >
+                                  Destination rules
+                                </div>
+                     
+                    </div>
+                  </h5>
+                  <div class="card-text">
+                    <div class="form-floating">
+                      <textarea
+                        class="form-control"
+                        placeholder="description"
+                        id="editFlightPopupDescription"
+                      ></textarea>
+                             <div
+                                  class="alert alert-danger d-none"
+                                  role="alert"
+                                  id="popup-alert-description"
+                                >
+                                  Description rules
+                                </div>
+                      <label for="editFlightPopupDescription"
+                        >Description</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editFlightPopupPrice"
+                        placeholder="Price"
+                      />
+                             <div
+                                  class="alert alert-danger d-none"
+                                  role="alert"
+                                  id="popup-alert-price"
+                                >
+                                  Price rules
+                                </div>
+                      <label for="editFlightPopupPrice">Price</label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="editFlightPopupImg"
+                        placeholder="Img"
+                      />
+                             <div
+                                  class="alert alert-danger d-none"
+                                  role="alert"
+                                  id="popup-alert-imgUrl"
+                                >
+                                  Img Url rules
+                                </div>
+                      <label for="editFlightPopupImg">Img</label>
+                    </div>
+                  </li>
+                </ul>
+                <div class="card-body">
+                  <button
+                    type="button"
+                    class="btn btn-success d-none"
+                    id="editFlightPopupSaveBtn"
+                  >
+                    <i class="bi bi-check-circle-fill"></i> Save
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-info d-none"
+                    id="addFlightPopupsaveBtn"
+                  >
+                    <i class="bi bi-check-circle-fill"></i> Save
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="editFlightPopupCancelBtn"
+                  >
+                            <i
+                      class="bi bi-x-circle-fill"
+                      id="editFlightPopupCancelBtnIcon"
+                    ></i>
+
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+                <div
+            class="seeMore-wrapper d-flex justify-content-center align-items-center d-none "
+          id="list-see-more-container"
+          >
+            
+              <div class="card">
+                <img
+                  src=""
+                  class="card-img-top"
+                  alt="see more image"
+                  id="list-see-more-img"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <div class="form-floating mb-3">
+              
+                     
+                      <div id="list-see-more-destination"></div>
+                    </div>
+                  </h5>
+                  <div class="card-text">
+                    <div class="form-floating">
+                   
+                      <h5 for="list-see-more-description"
+                        >Description</h5
+                      >
+                         <p id="list-see-more-description"></p>
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="form-floating mb-3">
+             
+                      <h5 for="list-see-more-price">Price</h5>
+                      <div id="list-see-more-price"></div>
+                    </div>
+                  </li>
+                 
+                </ul>
+                <div class="card-body">
+               
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="see-more-back-btn"
+                  >
+                   <i class="bi bi-backspace"></i>
+                    Back
+                  </button>
+                </div>
+              </div>
+           
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <button type="button" class="btn btn-outline-primary" id="homeDisplayList">
+                <i class="bi bi-card-list"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="homeDisplayGallery"
+              >
+                <i class="bi bi-microsoft"></i>
+              </button>
+              <button type="button" class="btn btn-outline-primary" id="homeDisplayCarousel">
+                <i class="bi bi-file-earmark-slides"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="homeDisplaySortASC"
+              >
+                <i class="bi bi-sort-alpha-down"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="homeDisplaySortDESC"
+              >
+                <i class="bi bi-sort-alpha-up"></i>
+              </button>
+            </div>
+            <form class="d-flex align-self-end" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                id="homeDisplaySearch"
+              />
+            </form>
+          </div>
+          <div id="flightGallery" class="d-none">
+            <div
+              class="row row-cols-1 row-cols-md-3 g-4"
+              id="home-page-flight-gallery"
+            ></div>
+          </div>
+          <div id="flightList" class="d-none">
+            <ul class="list-group" id="home-page-flight-list"></ul>
+          </div>
+          <div id="flightCarousel" class="carusel d-none">
+            <div class="img-container" id="home-page-flights-carousel"></div>
+            <div class="d-flex justify-content-around">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="back-carusel-btn"
+              >
+                <i class="bi bi-arrow-left"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="next-carusel-btn"
+              >
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- about us -->
+        <div id="about-us" class="d-none">
+          <h1>About us</h1>
+          <div class="about-section">
+  <h1>Welcome to our website!</h1>
+  <p>Make your dream trip come true!</p>
+  <p>Go through our site to find the best deal for your trip!</p>
+</div>
+
+<h2 style="text-align:center">Our Website</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="./assets/imgs/homepageCarouselImg.jpg" alt="Dubai" style="width:100%">
+      <div class="container">
+        <h2>Display Modes</h2>
+        <p class="title">List, Gallery and Carousel</p>
+        <p>Our homepage features three different display modes - list, gallery and carousel - allowing you to choose your preferred view of the available flights. You can filter your search results by using the the search bar in the top right corner. Also, </p>
+        <p>business clients can edit,delete and add flights</p>
+        <p><button class="button" id="about-us-display-btn">VIEW DISPLAY MODES</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="./assets/imgs/homepageCarouselImg2.jpg" alt="Ibiza" style="width:100%">
+      <div class="container">
+        <h2>Registration and Login Page</h2>
+        <p class="title"></p>
+        <p>Our registration form is simple and easy to use, requiring only your basic personal information and contact details.
+Once you have registered, you can log in to your account using our login page. </p>
+        <p>in the Registration page you have the option to register as a business client</p>
+     
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="./assets/imgs/homepageCarouselImg3.jpg" alt="Iceland" style="width:100%">
+      <div class="container">
+        <h2>Profile Page</h2>
+        <p class="title">Edit your personal information</p>
+        <p>As soon as you successfully login You can click your name on the top right to enter your profile page. Once you are in the profile page you can click "Edit Profile" button to change your personal information.</p>
+        <p>in the Profile page edit section you have the option to become a business client</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+
+        <!-- register page -->
+        <div id="register-page" class="d-none">
+          <h1>Register page</h1>
+          <section class="h-100 bg-dark">
+            <div class="container py-5 h-100">
+              <div
+                class="row d-flex justify-content-center align-items-center h-100"
+              >
+                <div class="col">
+                  <div class="card card-registration my-4">
+                    <div class="row g-0">
+                      <div class="col-xl-6 d-none d-xl-block">
+                        <img
+                          src="./assets/imgs/registerImg.jpg"
+                          alt="Sample photo"
+                          class="img-fluid"
+                          style="
+                            border-top-left-radius: 0.25rem;
+                            border-bottom-left-radius: 0.25rem;
+                          "
+                        />
+                      </div>
+                      <div class="col-xl-6">
+                        <div class="card-body p-md-5 text-black">
+                          <h3 class="mb-5 text-uppercase">
+                             registration form
+                          </h3>
+                          <h6>Name</h6>
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-firstName"
+                                  placeholder="First name"
+                                />
+                                <label for="register-input-firstName"
+                                  >First Name</label
+                                >
+                                <div
+                                  class="alert alert-danger d-none"
+                                  role="alert"
+                                  id="register-alert-firstName"
+                                >
+                                  First name rules
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-lastName"
+                                  placeholder="Last name"
+                                />
+                                <label for="register-input-lastName"
+                                  >Last Name</label
+                                >
+                                <div
+                                  class="alert alert-danger d-none"
+                                  role="alert"
+                                  id="register-alert-lastName"
+                                >
+                                  Last name rules
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <h6>Address</h6>
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-state"
+                                  placeholder="State"
+                                />
+                                <label for="register-input-state">State</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-country"
+                                  placeholder="Country"
+                                />
+                                <label for="register-input-country"
+                                  >Country</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-city"
+                                  placeholder="City"
+                                />
+                                <label for="register-input-city">City</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-street"
+                                  placeholder="Street"
+                                />
+                                <label for="register-input-street"
+                                  >Street</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-houseNumber"
+                                  placeholder="House number"
+                                />
+                                <label for="register-input-houseNumber"
+                                  >House number</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="register-input-zip"
+                                  placeholder="zip"
+                                />
+                                <label for="register-input-zip">zip code</label>
+                              </div>
+                            </div>
+                          </div>
+                          <h6>Means Of Contact</h6>
+                          <div class="form-outline mb-4">
+                            <input
+                              type="text"
+                              id="register-input-email"
+                              class="form-control"
+                              placeholder="Email Address"
+                            />
+                            <label for="register-input-email">Email</label>
+                            <div
+                              class="alert alert-danger d-none"
+                              role="alert"
+                              id="register-alert-email"
+                            >
+                              Email rules
+                            </div>
+                          </div>
+
+                          <div class="form-outline mb-4">
+                            <input
+                              type="text"
+                              id="register-input-phone"
+                              class="form-control"
+                              placeholder="Phone Number"
+                            />
+                            <label for="register-input-phone">Phone</label>
+                          </div>
+                          <h6>Security</h6>
+                          <div class="form-outline mb-4">
+                            <input
+                              type="password"
+                              id="register-input-password"
+                              class="form-control"
+                              placeholder="Password"
+                            />
+                            <label
+                              class="form-label"
+                              for="register-input-password"
+                              >Password</label
+                            >
+                            <div
+                              class="alert alert-danger d-none"
+                              role="alert"
+                              id="register-alert-password"
+                            >
+                              Password rules
+                            </div>
+                          </div>
+
+                          <div class="form-outline mb-4">
+                            <input
+                              type="password"
+                              id="register-input-repeatPassword"
+                              class="form-control"
+                              placeholder="Repeat Password"
+                            />
+                            <label
+                              class="form-label"
+                              for="register-input-repeatPassword"
+                              >Repeat password</label
+                            >
+                            <div
+                              class="alert alert-danger d-none"
+                              role="alert"
+                              id="register-alert-repeatPassword"
+                            >
+                              Password rules
+                            </div>
+                          </div>
+                          <div class="mb-3 form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="adminCheckBox"
+                            />
+                            <label class="form-check-label" for="adminCheckBox"
+                              >Business client</label
+                            >
+                          </div>
+
+                          <div class="d-flex justify-content-end pt-3">
+
+                            <button
+                              type="button"
+                              id="register-save-btn"
+                              class="btn btn-warning btn-lg ms-2"
+                            >
+                              Submit form
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- login page -->
+        <div id="login-page" class="d-none">
+          <h1>Login page</h1>
+          <form onsubmit="event.preventDefault()">
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="login-input-email"
+                placeholder="name@example.com"
+              />
+              <label for="login-input-email">Email address</label>
+            </div>
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="login-alert-email"
+            >
+              Email rules
+            </div>
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control"
+                id="login-input-password"
+                placeholder="Password"
+              />
+              <label for="login-input-password">Password</label>
+            </div>
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="login-alert-password"
+            >
+              Password rules
+            </div>
+            
+            <button class="btn btn-primary" id="login-btn">Submit</button>
+          </form>
+  
+        </div>
+        <!-- Favorited page-->
+
+         <div id="favorites-page" class="d-none">
+            <ul class="list-group" id="favorite-page-flight-list"></ul>
+          </div>
+
+        <!-- Profile Page -->
+        <div id="profile-page" class="d-none">
+          <section style="background-color: #eee">
+            <div class="container py-5">
+              <div class="row">
+                <div class="col">
+                  <nav
+                    aria-label="breadcrumb"
+                    class="bg-light rounded-3 p-3 mb-4"
+                  >
+                    <ol class="breadcrumb mb-0">
+                      <li class="breadcrumb-item">Home</li>
+                      <li class="breadcrumb-item">User</li>
+                  
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+
+                <div class="col-lg-12 ">
+                  <div class="card mb-4 p-3">
+                    
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                               <label for="profile-input-firstName"
+                            >First Name:</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-firstName"
+                            placeholder="First name"
+                          />
+                         
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-firstName-display"
+                          ></h5>
+                      
+                          <div
+                            class="alert alert-danger d-none"
+                            role="alert"
+                            id="profile-alert-firstName"
+                          >
+                            First name rules
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                           <label for="profile-input-lastName">Last Name:</label>
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-lastName"
+                            placeholder="Last name"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-lastName-display"
+                          ></h5>
+                         
+                          <div
+                            class="alert alert-danger d-none"
+                            role="alert"
+                            id="profile-alert-lastName"
+                          >
+                            Last name rules
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label for="profile-input-state">State:</label>
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-state"
+                            placeholder="State"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-state-display"
+                          ></h5>
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                             <label for="profile-input-country">Country</label>
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-country"
+                            placeholder="Country"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-country-display"
+                          ></h5>
+                       
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline"
+                        >
+                                  <label for="profile-input-city">City</label>
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-city"
+                            placeholder="City"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-city-display"
+                          ></h5>
+                
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label for="profile-input-street">Street</label>
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-street"
+                            placeholder="Street"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-street-display"
+                          ></h5>
+                          
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                            <label for="profile-input-houseNumber"
+                            >House number</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-houseNumber"
+                            placeholder="House number"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-houseNum-display"
+                          ></h5>
+                        
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <label for="profile-input-zip">zip code</label>
+                          <input
+                            type="text"
+                            class="form-control d-none"
+                            id="profile-input-zip"
+                            placeholder="zip"
+                          />
+                          <h5
+                            class="text-muted mb-0"
+                            id="profile-zip-display"
+                          ></h5>
+                          
+                        </div>
+                      </div>
+                    </div>
+                   
+                    <div class="form-outline mb-4">
+                                <label for="profile-input-email">Email</label>
+                      <input
+                        type="text"
+                        id="profile-input-email"
+                        class="form-control d-none"
+                        placeholder="Email Address"
+                      />
+                      <h5 class="text-muted mb-0" id="profile-email-display"></h5>
+            
+                      <div
+                        class="alert alert-danger d-none"
+                        role="alert"
+                        id="profile-alert-email"
+                      >
+                        Email rules
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                          <label for="profile-input-phone">Phone</label>
+                      <input
+                        type="text"
+                        id="profile-input-phone"
+                        class="form-control d-none"
+                        placeholder="Phone Number"
+                      />
+                      <h5 class="text-muted mb-0" id="profile-phone-display"></h5>
+                  
+                    </div>
+              
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="profile-input-password"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        id="profile-input-password"
+                        class="form-control d-none"
+                        placeholder="Password"
+                      />
+                      <h5
+                        class="text-muted mb-0"
+                        id="profile-password-display"
+                      ></h5>
+                      
+                      <div
+                        class="alert alert-danger d-none"
+                        role="alert"
+                        id="profile-alert-password"
+                      >
+                        Password rules
+                      </div>
+                        <div class="mb-3 form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input d-none"
+                        id="profile-input-adminCheckBox"
+                      />
+                      <label class="form-check-label d-none" id="profile-input-checkbox-label" for="profile-input-adminCheckBox"
+                        >Business client</label
+                      >
+                    </div>
+                  
+                    </div>
+
+
+                    </div>
+                  
+                    <button
+                      class="btn btn-success d-none"
+                      id="profile-save-btn"
+                    >
+                      Save
+                    </button>
+                    <button
+                      class="btn btn-danger d-none"
+                      id="profile-cancel-btn"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      class="btn btn-outline-primary"
+                      id="profile-edit-btn"
+                    >
+                      Edit Profile
+                    </button>
+                  </div>
+         
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="page-not-found-page" class="d-none"></div>
+      </main>
+   <footer class="bg-light text-center text-white">
+
+  <div class="container p-4 pb-0">
+
+    <section class="mb-4">
+
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="bi bi-facebook"></i></a>
+
+
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #55acee;"
+        href="#!"
+        role="button"
+        ><i class="bi bi-twitter"></i
+      ></a>
+
+
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="bi bi-google"></i
+      ></a>
+
+
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="bi bi-instagram"></i
+      ></a>
+
+
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+        ><i class="bi bi-linkedin"></i
+      ></a>
+
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="bi bi-github"></i
+      ></a>
+    </section>
+      <div class="text-center p-3" >
+    © 2023 Copyright: Omer Ben David
+  </div>
+
+  </div>
+
+</footer> 
+    </div>
+    <script src="../src/app.js" type="module"></script>
+  </body>
+</html>
